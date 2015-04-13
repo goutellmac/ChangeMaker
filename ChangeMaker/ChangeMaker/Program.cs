@@ -13,15 +13,53 @@ namespace ChangeMaker
             //calling the function with $4.19.  
             //Notice that when using the decimal format you must end numbers with an 'm'
             ChangeAmount(4.19m);
+            Console.WriteLine(ChangeAmount(4.19m));
+            
+            Console.ReadKey();
         }
 
         public static Change ChangeAmount(decimal amount) 
         {
             //this is our object that will hold the data of how many coins of each type to return
             Change amountAsChange = new Change();
-           
-            //TODO: Fill in the the code to make this function work
+            //while we can use a quarter, do so
+            while (amount >= .25m)
+            {
+                //increment the number of quarters
+                amountAsChange.Quarters++;
+                //take a quarter away from the amount
+                amount -= .25m;
 
+            }
+            //while we can use a dime, do so
+            while (amount >= .10m)
+            {
+                //increment the number of dimes
+                amountAsChange.Dimes++;
+                //take a dime away from the amount
+                amount -= .10m;
+
+            }
+            //while we can use a nickle, do so
+            while (amount >= .05m)
+            {
+                //increment the number of nickles
+                amountAsChange.Nickles++;
+                //take a nickle away from the amount
+                amount -= .05m;
+            }
+            //while we can use a penny, do so
+            while (amount >= .01m)
+            {
+                //increment the number of pennies
+                amountAsChange.Pennies++;
+                //take a penny away from the amount
+                amount -= .01m;
+            }
+            Console.WriteLine("Quarters: " + amountAsChange.Quarters);
+            Console.WriteLine("Dimes: " + amountAsChange.Dimes);
+            Console.WriteLine("Nickles: " + amountAsChange.Nickles);
+            Console.WriteLine("Pennies: " + amountAsChange.Pennies);
             //return our Change Object
             return amountAsChange;
         }
@@ -42,7 +80,9 @@ namespace ChangeMaker
 
             //outputting to the console
             Console.WriteLine("Quarters: " + amountAsChange.Quarters);
-
+            Console.WriteLine("Dimes: " + amountAsChange.Dimes);
+            Console.WriteLine("Nickles: " + amountAsChange.Nickles);
+            Console.WriteLine("Pennies: " + amountAsChange.Pennies);
             //returning the object
             return amountAsChange;
         }
